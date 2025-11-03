@@ -1,8 +1,13 @@
-# from django.shortcuts import render
-# from django.http import HttpResponse
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Acionista
+from .serializers import AcionistaSerializer
 
-@api_view(['GET'])
-def hello_world(request):
-    return Response({"message": "Olá do Django!"})
+class AcionistaView(viewsets.ModelViewSet):
+    queryset = Acionista.objects.all()
+    serializer_class = AcionistaSerializer
+    
+
+
+
+
