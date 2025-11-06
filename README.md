@@ -11,7 +11,7 @@ O sistema permite o cadastro, edição e exclusão de acionistas e empresas, al�
 - [Python](https://www.python.org/)
 - [Django](https://www.djangoproject.com/)
 - [Django REST Framework](https://www.django-rest-framework.org/)
-- [PostegreSQL]([https://www.postgresql.org/])
+- [PostgreSQL](https://www.postgresql.org/)
 
 ---
 
