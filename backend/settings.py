@@ -82,6 +82,7 @@ TEMPLATES = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://plancorp-challenge-frontend.vercel.app",
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
