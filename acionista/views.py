@@ -16,7 +16,7 @@ class ParticipacaoViewSet(viewsets.ModelViewSet):
     queryset = Participacao.objects.all()
     serializer_class = ParticipacaoSerializer
 
-    def criar(self, request, *args, **kwargs):
+    def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
 
         if serializer.is_valid():
@@ -30,7 +30,7 @@ class ParticipacaoViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def atualizar(self, request, *args, **kwargs):
+    def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data, partial=partial)
@@ -47,7 +47,7 @@ class ParticipacaoViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def deletar(self, request, *args, **kwargs):
+    def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         empresa = instance.empresa
         empresa.percentual_vendido -= instance.percentual

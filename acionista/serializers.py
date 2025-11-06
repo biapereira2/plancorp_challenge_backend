@@ -14,19 +14,19 @@ class ParticipacaoSerializer(serializers.ModelSerializer):
         model = Participacao
         fields = '__all__'
 
-    def valida_percentual(self, value):
+    def validate_percentual(self, value):
         if value <= 0 or value > 100:
             raise serializers.ValidationError("Percentual deve ser maior que 0 e menor ou igual a 100.")
         return value
 
-    def criar(self, validated_data):
+    def create(self, validated_data):
         participacao = super().create(validated_data)
         empresa = participacao.empresa
         empresa.percentual_vendido += participacao.percentual
         empresa.save()
         return participacao
 
-    def atualizar(self, instance, validated_data):
+    def update(self, instance, validated_data):
         percentual_anterior = instance.percentual
         instance.empresa.percentual_vendido -= percentual_anterior
         instance.empresa.save()
@@ -36,7 +36,7 @@ class ParticipacaoSerializer(serializers.ModelSerializer):
         empresa.save()
         return instance
 
-    def deletar(self, instance):
+    def delete(self, instance):
         empresa = instance.empresa
         empresa.percentual_vendido -= instance.percentual
         empresa.save()
