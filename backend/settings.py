@@ -31,7 +31,8 @@ SECRET_KEY = 'django-insecure-r9nqj@2im==_abz-nm)bo7bw7z68oe#bc@&3s6wsm*#3y+0&ok
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(' ') if not DEBUG else []
+# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(' ') if not DEBUG else []
+ALLOWED_HOSTS = ["plancorp-challenge-backend.onrender.com", "localhost", "127.0.0.1"]
 
 
 
