@@ -71,6 +71,7 @@ Para executar os testes:
 
 ```bash
 pytest
+```
 
 
 
