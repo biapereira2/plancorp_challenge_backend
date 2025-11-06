@@ -22,4 +22,6 @@ urlpatterns = [
     path('acionista/', include('acionista.urls')),
     path('empresa/', include('empresa.urls')),
     path('participacao/', include('acionista.urls')),
+    path('', RedirectView.as_view(url='/participacao/participacoes/', permanent=False)),
+
 ]
